@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="left-container">
+      <header>
+        <h1>KHOO ZI QI</h1>
+        <p>Computer Science Student | Freelance Illustrator</p>
+      </header>
+      <div class="content">
+        <p>Hello. My name is</p>
+        <h2 class="moving-text">KHOO ZI QI</h2>
+        <p class="moving-subtext">Computer science student, web developer, freelance illustrator</p>
+        <button>About me</button>
+      </div>
+    </div>
+    <div class="right-container">
+      <img src="images/my-pic.png" alt="Profile Image">
+      <button>MENU</button>
+    </div>
+  </div>
+  <div class="acad-container">
+    <div class="acad-left-panel">
+      <p class="acad-project-title">ACADEMIC WORKS</p>
+      
+      <button id="acad-up-arrow" class="acad-arrow">&#x25B2;</button> <!-- Black up-pointing triangle without stem -->
+      <div class="acad-3-container">
+        <div class="acad-project" data-project="1"></div>
+        <div class="acad-project" data-project="2"></div>
+        <div class="acad-project" data-project="3"></div>
+        <div class="acad-project" data-project="4"></div>
+      </div>
+      <button id="acad-down-arrow" class="acad-arrow">&#x25BC;</button> <!-- Black down-pointing triangle without stem -->
+    </div>
+  
+    <div class="acad-right-panel">
+ 
+      <p id="acad-project-name">Project Name</p>
+      <p id="acad-project-description">Project Description</p>
+
+      <div class="acad-project display"></div>
+    </div>
+  </div>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="scripts.js"></script>
+  <script src="scroll.js"></script>
+</body>
+</html>

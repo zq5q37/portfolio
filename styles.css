@@ -1,0 +1,261 @@
+/* styles.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+    background-color: #fffcf2;
+    height: 100%;
+    color: #434b50;
+  }
+
+  h1, h2, p, button {
+    font-family: 'Playfair Display', serif; /* Ensure all text elements use the Playfair Display font */
+  }
+  
+  .container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .left-container{
+    width: 60%;
+  }
+
+  .right-container{
+    width: 50%;
+  }
+  
+  .left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5%;
+    overflow: hidden;
+  }
+  
+  header {
+    margin-bottom: 100px;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+  }
+  
+  header p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  
+  .content {
+    position: relative;
+  }
+  
+  .content p {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  h2.moving-text {
+    font-size: 128px;
+    margin: 0;
+    font-weight: bold;
+    animation: moveText 20s linear infinite;
+  }
+  
+  p.moving-subtext {
+    font-size: 24px;
+    /* font-style: italic; */
+    margin-top: 10px;
+    animation: moveTextSlower 25s linear infinite;
+  }
+  
+  button {
+    /* margin-top: 20px; */
+    padding: 10px 20px;
+    border: 2px solid #434b50;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50px;
+  }
+
+  button:hover {
+    background-color: #434b50;
+    color: #fffcf2;
+
+}
+  
+  .right-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .right-container img {
+    /* max-width: 100%; */
+    width: auto;
+    height: 100%;
+  }
+  
+  /* @keyframes moveText {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes moveTextSlower {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  } */
+  
+  .acad-container {
+    display: flex;
+    /* height: 100vh; */
+    padding-left: 5%;
+  }
+  
+  .acad-left-panel {
+    width: 20%;
+    background-color: #434b50;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the arrows horizontally */
+    padding-left: 3%;
+    padding-right: 3%;
+    border-radius: 20px 0 0 20px;
+    /* height: 510px; */
+    overflow: hidden;
+  }
+  
+  .acad-project-title{
+    color: #fffcf2;
+    font-size: 28px;
+    margin-bottom: 0px;
+  }
+
+  
+  .acad-arrow {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #fffcf2;
+    cursor: pointer;
+    /* padding: 10px; */
+  }
+  
+  .acad-arrow:hover {
+    color: #B0BEC5;
+  }
+  
+  .acad-arrow:focus {
+    outline: none;
+  }
+  
+  .acad-project {
+    background-color: #c5c5c5;
+    margin: 10px 0;
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+    /* opacity: 0.5; Default translucency */
+    transition: opacity 0.3s, transform 0.3s; /* Smooth transition for opacity and position */
+  }
+
+  .acad-3-container {
+    width: 100%; /* Adjust as needed */
+    overflow: hidden; /* Hide overflow to ensure only 3 projects are visible at a time */
+    white-space: nowrap; /* Prevent line breaks */
+    /* position: relative; */
+  }
+  
+  .acad-project {
+    /* width: 33.33%; */
+    height: 32%; 
+    /* Adjust width as needed to show 3 items at a time */
+    /* box-sizing: border-box; */
+    /* padding: 10px; Optional: Adjust padding */
+    /* Add more styling as needed */
+  }
+  
+
+  .acad-project.active {
+    opacity: 1; /* Fully visible when active */
+  }
+  
+  .acad-project.hidden {
+    display: none; /* Hide elements that are out of view */
+  }
+
+  .acad-project img {
+    /* width: 100%; */
+    /* height: 150%; */
+    /* height: auto; Adjust this depending on whether you want to maintain the aspect ratio */
+    border-radius: 5px; /* Keep the same border radius as the project div */
+  }
+
+
+  .acad-project.display {
+    
+    width: 90%;
+    height: 500px;
+    border-radius: 20px;
+    background-color: transparent;
+  }
+
+  .acad-project.display img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;  /* Optional: Keep consistent with other images */
+  }
+  
+  .acad-right-panel {
+    width: 100%;
+    background-color: #434b50;
+    /* padding: px; */
+    color: #fffcf2;
+  }
+
+  /* .acad-right-container {
+    display: flex;
+  } */
+
+  #acad-project-name {
+    font-size: 50px;
+    /* width: 50%; */
+    height: auto;
+    /* padding-top: 0px; */
+    margin-top: 25px;
+    margin-bottom: 10px;
+    /* padding: auto; */
+  }
+  
+  @media (max-width: 768px) {
+    .acad-container {
+      flex-direction: column;
+    }
+  
+    .acad-left-panel, .acad-right-panel {
+      width: 100%;
+      height: auto;
+    }
+  
+    .acad-arrows {
+      flex-direction: row; /* Change to row for smaller screens */
+    }
+  }
+  
+  
