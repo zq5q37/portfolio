@@ -7,6 +7,12 @@ body, html {
     background-color: #fffcf2;
     height: 100%;
     color: #434b50;
+    background-image: url(images/sparkles2.png);
+    /* background-repeat: no-repeat; */
+    background-attachment: fixed; /* Keeps the background image fixed in place */
+    background-position: center; /* Centers the image */
+    
+    
   }
 
   h1, h2, p, button {
@@ -31,12 +37,13 @@ body, html {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 5%;
+    /* padding-left: 5%; */
     overflow: hidden;
   }
   
   header {
     margin-bottom: 100px;
+    
   }
   
   header h1 {
@@ -60,20 +67,26 @@ body, html {
     margin: 5px 0;
   }
   
-  h2.moving-text {
+  p.moving-text {
     font-size: 128px;
     margin: 0;
+    white-space: nowrap;  /* Prevent the text from wrapping */
     font-weight: bold;
-    animation: moveText 20s linear infinite;
+    animation: scroll-left 15s linear infinite; /* Animation to scroll left infinitely */
+    /* padding-left: 5%; */
   }
   
   p.moving-subtext {
     font-size: 24px;
     /* font-style: italic; */
+    white-space: nowrap;  /* Prevent the text from wrapping */
+    /* display: inline-block; */
     margin-top: 10px;
-    animation: moveTextSlower 25s linear infinite;
+    margin-bottom: 30px;
+    animation: scroll-left 30s linear infinite; /* Animation to scroll left infinitely */
+    
   }
-  
+
   button {
     /* margin-top: 20px; */
     padding: 10px 20px;
@@ -81,14 +94,16 @@ body, html {
     background: none;
     cursor: pointer;
     font-size: 18px;
-    border-radius: 50px;
+    border-radius: 50%; /* Perfect ellipse */
+    transition: all 0.3s;
   }
-
+  
   button:hover {
     background-color: #434b50;
     color: #fffcf2;
+  }
 
-}
+
   
   .right-container {
     display: flex;
@@ -122,7 +137,7 @@ body, html {
   
   .acad-container {
     display: flex;
-    /* height: 100vh; */
+    height: 100vh;
     padding-left: 5%;
   }
   
@@ -165,62 +180,76 @@ body, html {
   }
   
   .acad-project {
-    background-color: #c5c5c5;
+    background-color: #ffffff;
     margin: 10px 0;
     height: 150px;
     width: 150px;
     border-radius: 10px;
     cursor: pointer;
-    /* opacity: 0.5; Default translucency */
-    transition: opacity 0.3s, transform 0.3s; /* Smooth transition for opacity and position */
+    opacity: 0.5;
+    transition: opacity 0.3s, transform 0.3s; /* Smooth transition for opacity and position */    
+    /* width: 33.33%; */
+    /* height: 32%;  */
+    /* Adjust width as needed to show 3 items at a time */
+    /* box-sizing: border-box; */
+    /* padding: 10px; Optional: Adjust padding */
+    /* Add more styling as needed */
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* For Safari */
+    -ms-user-select: none; /* For Internet Explorer and Edge */
+    -moz-user-select: none; /* For Firefox */
+    /* pointer-events: none; Prevent interaction like dragging */
   }
 
   .acad-3-container {
     width: 100%; /* Adjust as needed */
     overflow: hidden; /* Hide overflow to ensure only 3 projects are visible at a time */
     white-space: nowrap; /* Prevent line breaks */
+    margin-bottom: 50px;
+    padding-left: 50px;
     /* position: relative; */
   }
   
-  .acad-project {
-    /* width: 33.33%; */
-    height: 32%; 
-    /* Adjust width as needed to show 3 items at a time */
-    /* box-sizing: border-box; */
-    /* padding: 10px; Optional: Adjust padding */
-    /* Add more styling as needed */
-  }
   
-
   .acad-project.active {
+    /* width: 180px;
+    height: 180px; */
     opacity: 1; /* Fully visible when active */
   }
   
-  .acad-project.hidden {
-    display: none; /* Hide elements that are out of view */
-  }
 
   .acad-project img {
     /* width: 100%; */
     /* height: 150%; */
     /* height: auto; Adjust this depending on whether you want to maintain the aspect ratio */
     border-radius: 5px; /* Keep the same border radius as the project div */
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* For Safari */
+    -ms-user-select: none; /* For Internet Explorer and Edge */
+    -moz-user-select: none; /* For Firefox */
+    pointer-events: none; /* Prevent interaction like dragging */
   }
 
 
   .acad-project.display {
-    
-    width: 90%;
-    height: 500px;
+    opacity: 1;
+    width: 80%;
+    height: 520px;
+    overflow: hidden;
     border-radius: 20px;
     background-color: transparent;
-  }
+    position: relative; /* Ensure the video can be positioned relative to its container */
+}
 
-  .acad-project.display img {
+.acad-project.display iframe {
     width: 100%;
-    height: auto;
-    border-radius: 5px;  /* Optional: Keep consistent with other images */
-  }
+    height: 100%;
+    object-fit: cover; /* Maintains aspect ratio while filling the container */
+    position: absolute;
+    /* top: -20px; Move the video up by 20px */
+    left: 0;
+}
+
   
   .acad-right-panel {
     width: 100%;
@@ -257,5 +286,274 @@ body, html {
       flex-direction: row; /* Change to row for smaller screens */
     }
   }
+
+  .co-curricular-header-container {
+    margin-top: 80px;
+    width: 100%;          /* Full width of the container */
+    overflow: hidden;     /* Hide the overflow to create the scrolling effect */
+    background-color: #CAD8D5;
+  }
   
+  .co-curricular-header {
+    font-size: 128px;
+    color: #fffcf2;
+    white-space: nowrap;  /* Prevent the text from wrapping */
+    display: inline-block;
+    animation: scroll-left 10s linear infinite; /* Animation to scroll left infinitely */
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  
+/* Define the keyframes for the scroll animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);  /* Start at the beginning */
+  }
+  100% {
+    transform: translateX(-50.5%); /* Move halfway (since the text is duplicated) */
+  }
+}
+  
+.dragon{
+    display: flex;
+    /* padding-left: 5%; */
+  }
+  
+.dragon-left-panel img {
+  width: 100%;
+}
+
+.dragon-right-panel{
+  width: 100%;
+  padding: 100px;
+  padding-left: 0px;
+}
+
+.title{
+  font-size: 64px;
+}
+
+.autoShow{
+  animation: autoShowAnimation both;
+  animation-timeline: view(90% 10%);
+}
+
+@keyframes autoShowAnimation{
+  from{
+    opacity: 0;
+    transform: translateY(200px) scale(0.3);
+
+  }to{
+    opacity: 1;
+    transform: translateY(0) scale(1); 
+  }
+}
+
+.autoShow2{
+  transform: translateY(200px); /* Start with images translated down */
+  animation: autoShow2Animation 1s ease-out both;
+  animation-timeline: view(70% 10%);
+}
+
+/* Apply staggered delay for each image */
+.dragon-photos img:nth-child(1) {
+  animation-delay: 0s; /* Left-most image appears first */
+}
+
+.dragon-photos img:nth-child(2) {
+  animation-delay: 1s; /* Middle image appears second */
+}
+
+.dragon-photos img:nth-child(3) {
+  animation-delay: 2s; /* Right-most image appears last */
+}
+
+@keyframes autoShow2Animation{
+  from{
+    opacity: 0;
+    transform: translateY(200px);
+
+  }to{
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.autoSlide{
+  animation: autoSlideAnimation both;
+  animation-timeline: view(50% 10%);
+}
+
+@keyframes autoSlideAnimation{
+  from{
+    opacity: 0;
+    transform: translateX(200px);
+    blur: (100px);
+
+  }to{
+    opacity: 1;
+    transform: translateX(0) scale(1); 
+    blur: 0px;
+  }
+}
+
+.autoSlide2{
+  animation: autoSlideAnimation2 both;
+  animation-timeline: view(70% 10%);
+}
+
+@keyframes autoSlideAnimation2{
+  from{
+    opacity: 0;
+    transform: translateX(200px);
+    blur: (100px);
+
+  }to{
+    opacity: 1;
+    transform: translateX(0) scale(1); 
+    blur: 0px;
+  }
+}
+
+.autoBlur{
+  animation: autoBlurAnimation both;
+  animation-timeline: view();
+}
+
+@keyframes autoBlurAnimation{
+  0%{
+    filter: blur(2px);
+    transform: scale(0.8);
+
+  }45%,55%{
+    filter: blur(0px);
+    transform: scale(1);
+  }
+  100%{
+    filter: blur(2px);
+    transform: scale(0.8);
+  }
+}
+
+
+
+.show {
+  opacity: 1;
+}
+
+.subtext{
+  font-size: 28px;
+  /* line-height: 1.5; */
+}
+
+.dragon-subtext-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.hidden {
+  opacity: 0;
+  transition: all 1s;
+}
+
+.dragon-3d {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#dragon-3d-container {
+  width: 70%;
+  height: 90%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid #CAD8D5; /* Adjust the width and color of the border */
+  background-color: transparent; /* Ensure background is transparent */
+  position: relative; /* Ensure correct positioning if needed */
+}
+
+
+/* canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+} */
+
+/* Container for the images */
+.dragon-photos {
+  display: flex;
+  justify-content: space-between; /* Distributes space evenly between images */
+  align-items: center; /* Aligns items vertically center */
+  flex-wrap: wrap; /* Allows wrapping if the container is too small */
+  gap: 5px; /* Adds space between the images */
+  padding: 0 40px; /* Optional: Adds padding to the container */
+  box-sizing: border-box; /* Ensures padding is included in the container's width */
+}
+
+/* Style for each image */
+.dragon-photos img {
+  height: 360px; /* Set a fixed height for all images */
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  width: auto; /* Keeps the image width proportional to the height */
+  max-width: 100%; /* Ensures images don't overflow their container */
+  border-radius: 10px; /* Optional: Adds rounded corners to images */
+}
+
+.art-installation{
+  padding: 60px 80px;
+  display: flex;
+
+}
+
+.art-installation-left-panel{
+  width: 70%;
+}
+  
+.art-installation-left-panel img{
+  width: 100%;
+}
+
+.art-installation-right-panel{
+  width: 40%;
+  padding-left: 60px;
+}
+
+.art-installation-right-panel img{
+  width: 85%;
+
+}
+
+.doki-doki{
+    padding: 60px 80px;
+}
+
+.ending{
+  width: 100%;
+  height: 50vh;
+  background-color: #434b50;
+  color: #fffcf2;
+
+}
+
+button2 {
+  margin-left: 10%;
+  /* margin-bottom: 10%; */
+  padding: 10px 20px;
+  border: 2px solid #fffcf2;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%; /* Perfect ellipse */
+  transition: all 0.3s;
+}
+
+button2:hover {
+  color: #434b50;
+  background-color: #fffcf2;
+}
+
   
